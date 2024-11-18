@@ -44,9 +44,9 @@ app.use(cookieParser());
 app.use(fileUpload());
 
 var sequelize = new Sequelize(
-    "loanme",
-    "root",
-    "", {
+    "finuseco_core_database",
+    "finuseco_core_u_s_e_r",
+    "hQwk-,Kb*4ho", {
         "dialect": "mysql",
         "storage": "./session.mysql"
     });
