@@ -1018,7 +1018,7 @@ class Credit extends React.Component {
                     },    
                 ],
                 */
-                watermark: { text: 'LoanMe', color: 'orange', opacity: 0.3, bold: true, italics: false },
+                watermark: { text: 'Finuseco', color: 'orange', opacity: 0.3, bold: true, italics: false },
                 footer: {
                     columns: [
                       { text: 'Fiche de demande de crédit', alignment: 'right' }

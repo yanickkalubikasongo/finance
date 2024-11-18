@@ -122,7 +122,7 @@ module.exports={
                                     console.log("******************************************* type user"+ data.type_membre)
                                 
                                  let numPhone= user.dataValues.telephone,
-                                    message =`Votre compte vient d'être crée avec succès chez LoanMe       
+                                    message =`Votre compte vient d'être crée avec succès chez Finuseco       
                                     pseudo: ${part_membre.dataValues.pseudo} mdp : ${mdp_user}
                                     Vous aurez un IM lorsque vous serez affecté à une structure
                                     Veuillez changer votre mot de passe pour le sécuriser.
@@ -174,7 +174,7 @@ module.exports={
                                     console.log("******************************************* type user "+ data.type_membre)
                                 
                                 let numPhone= user.dataValues.telephone,
-                                    message =`Bonjour, vous êtes désormais membre adhérent chez LoanMe       
+                                    message =`Bonjour, vous êtes désormais membre adhérent chez Finuseco       
                                     pseudo: ${part_membre.dataValues.pseudo} mdp : ${mdp_user}
                                     IM :  ${'0001-'+ code_us} Veuillez changer votre mot de passe pour
                                     le sécuriser. Bienvenue dans notre structure et merci de votre confiance.`,
