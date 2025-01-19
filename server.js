@@ -11,7 +11,7 @@ const compression    = require('compression');
 
 const Sequelize     = require('sequelize')
 // initalize sequelize with session store
-var SequelizeStore  = require('connect-session-sequelize')(session.Store);
+//var SequelizeStore  = require('connect-session-sequelize')(session.Store);
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -44,17 +44,18 @@ app.use(cookieParser());
 app.use(fileUpload());
 
 var sequelize = new Sequelize(
-    "finuseco_core_database",
-    "finuseco_core_u_s_e_r",
-    "hQwk-,Kb*4ho", {
+    "finuseco",
+    "finuseco",
+    "Admin2704@", {
         "dialect": "mysql",
-        "storage": "./session.mysql"
+        "storage": "./session.mysql",
+	"host":"localhost"
     });
    
 app.use(session({
-    store: new SequelizeStore({
-      db: sequelize
-    }),
+//    store: new SequelizeStore({
+  //    db: sequelize
+    //}),
     saveUninitialized : false,
     resave: false, // we support the touch method so per the express-session docs this should be set to false
     proxy: true, // if you do SSL outside of node.
@@ -79,7 +80,7 @@ app.use('/agence',require('./routes/agence.route'));
 * Lancement du serveur                                                   
 */  
 
-app.listen(8000 || process.port,()=>{
+app.listen(8080 || process.port,()=>{
     console.log('Application lancée');
 });
 
