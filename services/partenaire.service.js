@@ -74,13 +74,13 @@ module.exports={
                         console.log("********************************************denomination"+ part.dataValues.denomination)
                         console.log("********************************************gérant "+ code_partenaire+ '-' + code_us)
                         console.log("********************************************téléphone"+ part.dataValues.telephone)
-                       /*
+                       
                         let numPhone= part.dataValues.telephone,
                             message =`Votre structure ${part.dataValues.denomination}
                             vient d etre enregistree avec succes. IM Gerant: ${code_partenaire+ '-' + code_us}
                             Merci.`
-                        const url = `https://api2.dream-digital.info/api/SendSMS?api_id=API42124386641&api_password=x3McB19tzd&sms_type=T&encoding=T&sender_id=LoanMe SFN&phonenumber=${numPhone}&textmessage= ${message}`
-                        const response = await axios.get(url);*/
+                        const url = `https://api2.dream-digital.info/api/SendSMS?api_id=API12506297241&api_password=x3McB19tzd&sms_type=T&encoding=T&sender_id=LoanMe SFN&phonenumber=${numPhone}&textmessage= ${message}`
+                        const response = await axios.get(url);
                     })
                 }
             });
