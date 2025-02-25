@@ -101,12 +101,12 @@ module.exports={
                     }/*, { transaction: t }*/)
                     id_cmt = comp.dataValues.id
                     
-                    let compt = await this.search_compte_patner(id_cmt)/*,
+                    let compt = await this.search_compte_patner(id_cmt),
                         numPhone=compt[0].telephone,
                         message=`Vous venez de creer un compte ${comp.dataValues.type_compte} : ${compt[0].compte} `,
-                        url = `https://api2.dream-digital.info/api/SendSMS?api_id=API42124386641&api_password=x3McB19tzd&sms_type=T&encoding=T&sender_id=LoanMe CD&phonenumber=${numPhone}&textmessage=${message}`;
+                        url = `https://api2.dream-digital.info/api/SendSMS?api_id=API12506297241&api_password=x3McB19tzd&sms_type=T&encoding=T&sender_id=FINUSECO&phonenumber=${numPhone}&textmessage=${message}`;
                     
-                    const response = await axios.get(url);*/
+                    const response = await axios.get(url);
                 }
             }
         //})
