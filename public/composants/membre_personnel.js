@@ -1376,7 +1376,7 @@ class Repertoire_personnel extends React.Component {
                 adresse_physique :item.adresse_physique,
                 lieu_naiss       :item.lieu_naissance,
                 structure        :item.denomination,
-                photo            :item.photo,
+                photo            :'https://admin.finuseco.com/'+item.photo,
                 telephone        :item.telephone,
                 sexe             :item.sexe,
                 one_erreur       :'https://agence.finuseco.com/'+item.photo
