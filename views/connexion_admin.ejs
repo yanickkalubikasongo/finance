@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Connexion</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="/static/login/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/static/login/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <style>
+        /* Styles pour le spinner et les messages */
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(20, 13, 117, 0.733);
+            border-top-color: #ff6600;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .success-message, .error-message {
+            display: none;
+            margin: 10px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success-message {
+            background-color: #13db41;
+            color: white;
+        }
+        .error-message {
+            background-color: #fa1313;
+            color: white;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .form-control {
+            padding-left: 40px;
+        }
+        .eye-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .user-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+          /* Progression bar (barre de progression en haut de la page) */
+          #progress-bar {
+            height: 5px;
+            background: linear-gradient(90deg, #00ff37, #ff3300, #000E38);
+            width: 0;
+        }
+    
+        .blocked-message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .counter {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body style="background-color: #ff6600;"><br>
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-10 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5" style="background-image: url('/static/login/img/card2.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                            <div style="background-color: #696666;" class="card-header py-3">
+                                <h4 class="m-0 font-weight-bold text-center" style="color: #fcfdff;">FINUSECO Backoffice !</h4>
+                            </div>
+                        <div class="row">
+                            <div class="col-lg-6"><img style="margin-top: 47px;margin-left: 50px;width: 450px;height: 160px;" src="/static/login/img/loanme.png" alt=""></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <form class="user" id="loginForm" method="post" action="/authentification_admin">
+                                        <!-- Pseudo avec icône fa-user -->
+                                        <div style="background-color: #000e38;" class="card-header py-3">
+                                            <h4 class="m-0 text-center" style="color: #f5f6f8;">Connexion !</h4>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg-light border-0 small" name="Pseudo" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Pseudo">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="mdp" class="form-control bg-light border-0 small" id="exampleInputPassword" placeholder="Password">
+                                            <!-- Pseudo avec icône fa-user -->
+                                        </div>
+                                        <button type="submit" class="btn btn-user btn-block" id="loginButton" style="background-color: #ff6600;color: white;">
+                                            <i class="fas fa-sign-in-alt"></i>&nbsp;Se connecter
+                                        </button>
+                                        <div id="spinner" class="spinner"></div>
+                                        <div id="successMessage" class="success-message">Connexion réussie. Redirection...</div>
+                                        <div id="errorMessage" class="error-message">Erreur : Pseudo ou mot de passe incorrect.</div>
+                                        <div id="blockedMessage" class="blocked-message"></div>
+                                        <div id="counter" class="counter"></div>
+                                        <% if(typeof message_alerte_authent !== 'undefined'){ %>
+                                            <h6 id="erreur" style="color: red;"><%= message_alerte_authent %></h6>
+                                        <% } %>
+                                    </form>
+                                    <div class="text-center">
+                                        <a class="small" href="/mdp_oublie">Mot de passe oublié ?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="/changer_mdp">Changer mot de passe ?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="/help">Aide et assistance !</a>
+                                    </div>
+                                    <h6 class="m-0 text-center" style="color: #fcfdff;">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+  <script src="/static/login/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/login/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="/static/login/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/static/login/js/sb-admin-2.min.js"></script>
+
+  <!-- JavaScript pour gestion du verrouillage après tentatives échouées -->
+  <script>
+    let failedAttempts = 0;
+    const maxAttempts = 3;
+    const lockDuration = 30; // secondes
+    let lockTimer;
+
+    const form = document.getElementById('loginForm');
+    const loginButton = document.getElementById('loginButton');
+    const spinner = document.getElementById('spinner');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    const blockedMessage = document.getElementById('blockedMessage');
+    const counter = document.getElementById('counter');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        if (failedAttempts >= maxAttempts) {
+            return;
+        }
+
+        // Afficher le spinner et cacher les messages
+        spinner.style.display = 'block';
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+        blockedMessage.innerText = ''; // Réinitialiser le message bloqué
+
+        // Simuler une connexion (remplacer par ta logique de validation réelle)
+        setTimeout(function () {
+            spinner.style.display = 'none';
+
+            // Remplace par ta logique de validation réelle (par exemple, un appel AJAX pour vérifier les données)
+            const pseudo = document.getElementById('exampleInputEmail').value;
+            const mdp = document.getElementById('exampleInputPassword').value;
+
+            // Exemple simplifié de vérification des informations saisies
+            const loginSuccessful = (pseudo === "Pseudo" && mdp === "mdp"); // Remplace par ta logique
+
+            if (true) {
+                successMessage.style.display = 'block';
+                setTimeout(function () {
+                    form.submit(); // Soumettre le formulaire en cas de succès
+                }, 4000); // délai avant soumission
+            } else {
+                failedAttempts++;
+                errorMessage.style.display = 'block';
+                if (failedAttempts >= maxAttempts) {
+                    lockLogin();
+                }
+            }
+        }, 2000);
+    });
+
+    function lockLogin() {
+        loginButton.disabled = true;
+        let timeLeft = lockDuration;
+        blockedMessage.innerText = 'Trop de tentatives échouées. Veuillez réessayer dans ' + timeLeft + ' secondes.';
+        lockTimer = setInterval(function () {
+            timeLeft--;
+            blockedMessage.innerText = 'Trop de tentatives échouées. Veuillez réessayer dans ' + timeLeft + ' secondes.';
+            if (timeLeft <= 0) {
+                clearInterval(lockTimer);
+                loginButton.disabled = false;
+                blockedMessage.innerText = '';
+                failedAttempts = 0;
+            }
+        }, 1000);
+    }
+        // Toggle afficher/cacher mot de passe
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');  // Basculer entre l'icône 'fa-eye' et 'fa-eye-slash'
+        });
+    </script>
+    <script src="//code.tidio.co/fiivozwggwjeugddm1a2hpwv3aznyvtc.js" async>
+    </script>
+
+</body>
+
+</html>
